@@ -12,6 +12,9 @@ Usage:</br>
 ./afscan.exe -model sshcrack -ip 192.168.201.1/24 -port 22,222 -user root,admin -pass root,123456(指定用户名密码爆破，用逗号分割)</br>
 ./afscan.exe -model smbcrack -ip 192.168.201.1/24 -port 445 -user administrator,admin,guest,test(可指定密码,不指定默认使用默认密码)</br>
                        --by au7eng</br>
+		       
+#### usage:</br>		 
+![Image text](https://raw.githubusercontent.com/AuFeng111/afscan/master/image.png)
 </br>
 </br>
 </br>
