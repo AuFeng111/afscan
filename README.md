@@ -15,29 +15,8 @@ Usage:</br>
 		       
 #### usage:</br>		 
 ![Image text](https://raw.githubusercontent.com/AuFeng111/afscan/master/image.png)
+
 </br>
+#### 实战ssh爆破
 </br>
-</br>
-Options:</br>
-  -ip string</br>
-        192.168.1-255.1-10</br>
-        192.168.1.1/24</br>
-        192.168.1.* (default "127.0.0.1")</br>
-	</br>
-  -model string</br>
-        icmpalive</br>
-        portscan</br>
-        sshcrack</br>
-        smbcrack</br>
-	</br>
-  -pass string</br>
-         (default "123456,admin,admin123,root,,pass123,pass@123,password,123123,654321,111111,123,1,admin@123,Admin@123,admin123!@#,P@ssw0rd!,P@ssw0rd,Passw0rd,qwe123,12345678,test,test123,123qwe!@#,123456789,123321,666666,a123456.,123456~a,123456!a,000000,1234567890,8888888,!QAZ2wsx,1qaz2wsx,abc123,abc123456,1qaz@WSX,a11111,a12345,Aa1234,Aa1234.,Aa12345,a123456,a123123,Aa123123,Aa123456,Aa12345.,sysadmin,system,1qaz!QAZ,2wsx@WSX,qwe123!@#,Aa123456!,A123456s!,sa123456,1q2w3e")
-  </br>
-  -port string</br>
-         (default "22,80,445,3389,8000-9000")</br>
-  </br>
-  -t int</br>
-        thread (default 500)</br>
-  </br>
-  -user string</br>
-         (default "ubuntu,admin,test,user,root")</br>
+![Image text](https://raw.githubusercontent.com/AuFeng111/afscan/master/image2.png)
