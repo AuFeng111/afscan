@@ -14,7 +14,7 @@ go写的afscan
 ./afscan.exe -model sshcrack -ip 192.168.201.1/24 -port 222(使用默认账号密码,指定端口爆破,port参数必须使用。)</br>
 ./afscan.exe -model sshcrack -ip 192.168.201.1/24 -port 22,222 -user root,admin -pass root,123456(指定用户名密码爆破，用逗号分割)</br>
 ./afscan.exe -model smbcrack -ip 192.168.201.1/24 -port 445 -user administrator,admin,guest,test(可指定密码,不指定默认使用默认密码)</br>
-./afscan.exe -model webtitle -ip 192.168.201.1/24 -port 80,443 (必须带上port)
+./afscan.exe -model webtitle -ip 192.168.201.1/24 -port 80,443 (必须带上port)</br>
                        --by au7eng</br>
 		       
  +  实战ssh爆破</br>
