@@ -8,7 +8,7 @@ import (
 	//"log"
 	//"icmp"
 	"afscan/icmpalive"
-	"afscan/portscan"
+	"afscan/portscan2"
 	"afscan/smbcrack"
 	"afscan/sshcrack"
 	"afscan/webtitle"
@@ -17,6 +17,7 @@ import (
 var model, ip, port, user, pass string
 var t int
 var y int
+var timeout int64
 
 //sshPassword := []string{"123456", "admin", "admin123", "root", "", "pass123", "pass@123", "password", "123123", "654321", "111111", "123", "1", "admin@123", "Admin@123", "admin123!@#", "P@ssw0rd!", "P@ssw0rd", "Passw0rd", "qwe123", "12345678", "test", "test123", "123qwe!@#", "123456789", "123321", "666666", "a123456.", "123456~a", "123456!a", "000000", "1234567890", "8888888", "!QAZ2wsx", "1qaz2wsx", "abc123", "abc123456", "1qaz@WSX", "a11111", "a12345", "Aa1234", "Aa1234.", "Aa12345", "a123456", "a123123", "Aa123123", "Aa123456", "Aa12345.", "sysadmin", "system", "1qaz!QAZ", "2wsx@WSX", "qwe123!@#", "Aa123456!", "A123456s!", "sa123456", "1q2w3e"}
 
@@ -26,6 +27,7 @@ func init() {
 	flag.StringVar(&model, "model", "", "icmpalive\nportscan\nsshcrack\nsmbcrack\nwebtitle")
 	flag.StringVar(&ip, "ip", "127.0.0.1", "192.168.1-255.1-10\n192.168.1.1/24\n192.168.1.*")
 	flag.IntVar(&t, "t", 500, "thread")
+	flag.Int64Var(&timeout, "timeout", 3, "timeout")
 	flag.StringVar(&port, "port", "22,80,445,3389,8000-9000", "")
 	flag.StringVar(&user, "user", "ubuntu,admin,test,user,root", "")
 	//flag.StringVar(&pass, "pass", "123456,admin,admin123,root,,pass123,pass@123,password,123123,654321,111111,123,1,admin@123,Admin@123,admin123!@#,P@ssw0rd!,P@ssw0rd,Passw0rd,qwe123,12345678,test,test123,123qwe!@#,123456789,123321,666666,a123456.,123456~a,123456!a,000000,1234567890,8888888,!QAZ2wsx,1qaz2wsx,abc123,abc123456,1qaz@WSX,a11111,a12345,Aa1234,Aa1234.,Aa12345,a123456,a123123,Aa123123,Aa123456,Aa12345.,sysadmin,system,1qaz!QAZ,2wsx@WSX,qwe123!@#,Aa123456!,A123456s!,sa123456,1q2w3e", "")
@@ -43,13 +45,13 @@ func main() {
 	case "icmpalive":
 		icmpalive.Main(t, ip)
 	case "portscan":
-		portscan.Main(port, t, ip)
+		portscan2.PortScan(ip, port, t, timeout)
 	case "sshcrack":
-		sshcrack.Main(ip, port, user, pass)
+		sshcrack.Main(ip, port, t, timeout, user, pass)
 	case "smbcrack":
-		smbcrack.Main(ip, port, user, pass)
+		smbcrack.Main(ip, port, t, timeout, user, pass)
 	case "webtitle":
-		webtitle.Webtitle(port, ip)
+		webtitle.Webtitle(ip, port, t, timeout)
 	default:
 		flag.Usage()
 	}
