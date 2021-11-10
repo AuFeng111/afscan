@@ -1,7 +1,7 @@
 package smbcrack
 
 import (
-	"afscan/portscan"
+	"afscan/portscan2"
 	"fmt"
 	"log"
 	"strconv"
@@ -17,13 +17,13 @@ type Task struct {
 	pass string
 }
 
-func Main(ip string, ports string, User string, Password string) {
+func Main(ip string, ports string, t int, timeout int64, User string, Password string) {
 	var tasks []Task
 	var ips, user1, pass1 []string
 	//t := 500
 	//ip := "192.168.56-201.1-255"
 	//ports := "445"
-	ips = portscan.Second_Main(ports, ip)
+	ips = portscan2.PortScan(ip, ports, t, timeout)
 
 	fmt.Println(ips)
 
