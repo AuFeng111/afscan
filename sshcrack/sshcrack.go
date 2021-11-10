@@ -1,7 +1,7 @@
 package sshcrack
 
 import (
-	"afscan/portscan"
+	"afscan/portscan2"
 	"fmt"
 	"golang.org/x/crypto/ssh"
 	"log"
@@ -78,7 +78,7 @@ func runTask(tasks []Task, threads int) {
 }
 
 //注意，是先icmp探存活，然后再扫端口，如果对方禁了icmp协议，需要tcp探测端口
-func Main(ip string, ports string, sshUser string, sshPassword string) {
+func Main(ip string, ports string, t int, timeout int64, sshUser string, sshPassword string) {
 	var tasks []Task
 	var ips []string
 	var Passwords, User []string
@@ -87,7 +87,7 @@ func Main(ip string, ports string, sshUser string, sshPassword string) {
 	//ip := "121.4.236.90-100"
 	//ports := "22"
 	//ips = icmpalive.Main(t,ip)
-	ips = portscan.Second_Main(ports, ip)
+	ips = portscan2.PortScan(ip, ports, t, timeout)
 	fmt.Println(ips)
 	//address := "192.168.201.139:22"
 	countSplit := strings.Split(sshPassword, ",")
