@@ -54,7 +54,7 @@ var sucess_ip []string
 //队列+结构体+高并发
 func runTask(tasks []Task, threads int) {
 	var wg sync.WaitGroup
-	taskCh := make(chan Task, threads*2)
+	taskCh := make(chan Task, 50000)
 	for i := 0; i < threads; i++ {
 		go func() {
 			for task := range taskCh {
