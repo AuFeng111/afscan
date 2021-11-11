@@ -16,7 +16,6 @@ type Addr struct {
 	port int
 }
 
-//var addresses []string
 
 func PortScan(ip string, ports string, t int, timeout int64) []string {
 	var addresses []string
@@ -59,7 +58,7 @@ func PortScan(ip string, ports string, t int, timeout int64) []string {
 
 func PortConnect(addr Addr, Timeout int64, wg *sync.WaitGroup) string {
 	host, port := addr.ip, addr.port
-	conn, err := net.DialTimeout("tcp", fmt.Sprintf("%s:%v", host, port), time.Duration(Timeout)*time.Second)
+	conn, err := net.DialTimeout("tcp4", fmt.Sprintf("%s:%v", host, port), time.Duration(Timeout)*time.Second)
 	defer func() {
 		if conn != nil {
 			conn.Close()
