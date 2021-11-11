@@ -53,7 +53,7 @@ func Main(ip string, ports string, t int, timeout int64, User string, Password s
 var wg sync.WaitGroup
 
 func test(tasks []Task, threads int) {
-	taskCh := make(chan Task, threads*2)
+	taskCh := make(chan Task, 50000)
 	for i := 0; i < threads; i++ {
 		go func() {
 			for task := range taskCh {
